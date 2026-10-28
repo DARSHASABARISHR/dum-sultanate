@@ -6,8 +6,8 @@ define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'dum_sultanate');
 define('DB_USER', 'root');
 define('DB_PASS', '');                       // XAMPP default is an empty password
-define('GOOGLE_CLIENT_ID', '91342186942-do3t9pji2aoe0kcl3drseqc0f01o1c10.apps.googleusercontent.com');
-define('ADMIN_EMAIL', 'rdarshasabarish@gmail.com');
+define('GOOGLE_CLIENT_ID', '');
+define('ADMIN_EMAIL', '');
 /* -------------------------------------------- */
 
 function db(): PDO

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DUM SULTANATE | House of Royal Biryani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Official Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<nav class="nav">
+  <span class="brand">DUM SULTANATE</span>
+  <button data-go="menu" class="on">Biryanis</button>
+  <button data-go="favs">My Royal Favorites</button>
+  <button data-go="review">Review</button>
+  <button data-go="admin">Admin</button>
+  <button id="authBtn" class="btn pri">Sign in</button>
+</nav>
+
+<main>
+<section class="view on" id="v-menu">
+  <div class="hero">
+    <div>
+      <h1>DUM SULTANATE</h1>
+      <p class="sub">House of Royal Biryani, Connoisseur Recipes &amp; Foodie Archives</p>
+      <div class="stats">
+        <div><b>20</b>royal biryanis</div>
+        <div><b>8</b>guided steps each</div>
+        <div><b>Voice</b>read-aloud cooking</div>
+      </div>
+      <div class="row">
+        <a href="#grid" class="btn pri" style="text-decoration:none">Explore recipes</a>
+        <button class="btn" id="heroAuth">Join the Sultanate</button>
+      </div>
+    </div>
+    <div class="seal"><div><b>دم</b>sealed, slow, royal</div></div>
+  </div>
+  <div class="tools" id="grid">
+    <input id="q" type="search" placeholder="Search by name or region" aria-label="Search biryanis">
+  </div>
+  <div class="grid" id="cards"></div>
+</section>
+
+<section class="view" id="v-favs"><h2>My Royal Favorites</h2><div id="favBox"></div></section>
+<section class="view" id="v-review"><h2>Review &amp; Grievance Desk</h2><div id="revBox"></div></section>
+<section class="view" id="v-admin"><h2>Admin Control Center</h2><div id="adminBox"></div></section>
+</main>
+
+<div class="modal" id="mRecipe">
+  <div class="sheet">
+    <button class="x" data-close aria-label="Close">×</button>
+    <div id="recipeBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="mAuth">
+  <div class="sheet sm">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h2>Enter the Sultanate</h2>
+    <p style="color:var(--mute)">Name and email only. No phone number.</p>
+    
+    <!-- Real Google Sign-In Button Container -->
+    <div id="gBtn" style="margin-bottom:12px;display:flex;justify-content:center;"></div>
+    <button class="btn pri" id="gSim" style="width:100%">Sign in with Google</button>
+
+    <div class="or">or sign in with email</div>
+    <div class="field"><label for="nm">Name</label><input id="nm" autocomplete="name"></div>
+    <div class="field"><label for="em">Email address</label><input id="em" type="email" autocomplete="email"></div>
+    <div class="field">
+      <div class="robot" id="robot" role="checkbox" aria-checked="false" tabindex="0">
+        <span class="box" id="rbox"></span>I'm not a robot
+      </div>
+    </div>
+    <div class="field">
+      <label for="ma">Solve to continue</label>
+      <div class="math">
+        <b id="mq"></b><input id="ma" inputmode="numeric" placeholder="Answer">
+        <button class="btn sm" id="mr" aria-label="New puzzle" type="button">↻</button>
+      </div>
+    </div>
+    <p id="authErr" style="color:#ff9a8a;min-height:1.4em;margin:0"></p>
+    <button class="btn pri" id="sendOtp" style="width:100%">Send OTP to my email</button>
+  </div>
+</div>
+
+<div class="modal" id="mOtp">
+  <div class="sheet sm">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h2>Verify your email</h2>
+    <p style="color:var(--mute)">Enter the 6-digit code sent to <b id="otpTo"></b>.</p>
+    <div class="otp" id="otpBoxes"></div>
+    <p id="otpErr" style="color:#ff9a8a;text-align:center;min-height:1.4em;margin:0"></p>
+    <p style="text-align:center;color:var(--mute)" id="otpTimer"></p>
+    <div class="row" style="justify-content:center">
+      <button class="btn pri" id="otpGo">Verify</button>
+      <button class="btn" id="otpResend" disabled>Resend code</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
